@@ -14,7 +14,7 @@ if (!isset($_GET['id'])) {
 
 $video_id = (int) $_GET['id'];
 
-$stmt = $conn->prepare("SELECT v.*, t.fullname FROM videos v JOIN talents t ON v.user_id = t.id WHERE v.id = ?");
+$stmt = $conn->prepare("SELECT v.*, t.fullname FROM videos v JOIN users t ON v.user_id = t.id WHERE v.id = ?");
 $stmt->bind_param("i", $video_id);
 $stmt->execute();
 $result = $stmt->get_result();

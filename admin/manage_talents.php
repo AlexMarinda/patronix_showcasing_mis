@@ -17,22 +17,22 @@ if ($search) {
     $search_param = "%$search%";
 
     // Total count
-    $stmt = $conn->prepare("SELECT COUNT(*) as total FROM talents WHERE fullname LIKE ? OR phone LIKE ?");
+    $stmt = $conn->prepare("SELECT COUNT(*) as total FROM users WHERE role='talent' fullname LIKE ? OR phone LIKE ?");
     $stmt->bind_param("ss", $search_param, $search_param);
     $stmt->execute();
     $totalRows = $stmt->get_result()->fetch_assoc()['total'];
     $stmt->close();
 
     // Fetch talents
-    $stmt = $conn->prepare("SELECT * FROM talents WHERE fullname LIKE ? OR phone LIKE ? ORDER BY created_at DESC LIMIT ? OFFSET ?");
+    $stmt = $conn->prepare("SELECT * FROM users WHERE role='talent' AND fullname LIKE ? OR phone LIKE ? ORDER BY created_at DESC LIMIT ? OFFSET ?");
     $stmt->bind_param("ssii", $search_param, $search_param, $limit, $offset);
     $stmt->execute();
     $result = $stmt->get_result();
     $stmt->close();
 } else {
     // No search, fetch all talents
-    $totalRows = $conn->query("SELECT COUNT(*) as total FROM talents")->fetch_assoc()['total'];
-    $result = $conn->query("SELECT * FROM talents ORDER BY created_at DESC LIMIT $limit OFFSET $offset");
+    $totalRows = $conn->query("SELECT COUNT(*) as total FROM users WHERE role='talent'")->fetch_assoc()['total'];
+    $result = $conn->query("SELECT * FROM users WHERE role='talent' ORDER BY created_at DESC LIMIT $limit OFFSET $offset");
 }
 
 $totalPages = ceil($totalRows / $limit);

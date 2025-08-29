@@ -20,14 +20,14 @@ if ($search) {
     $search_param = "%$search%";
 
     // Total count with join for talent name
-    $stmt = $conn->prepare("SELECT COUNT(*) as total FROM videos v JOIN talents t ON v.user_id = t.id WHERE v.title LIKE ? OR t.fullname LIKE ?");
+    $stmt = $conn->prepare("SELECT COUNT(*) as total FROM videos v JOIN users t ON v.user_id = t.id WHERE v.title LIKE ? OR t.fullname LIKE ?");
     $stmt->bind_param("ss", $search_param, $search_param);
     $stmt->execute();
     $totalRows = $stmt->get_result()->fetch_assoc()['total'];
     $stmt->close();
 
     // Fetch videos with talent name
-    $stmt = $conn->prepare("SELECT v.*, t.fullname FROM videos v JOIN talents t ON v.user_id = t.id WHERE v.title LIKE ? OR t.fullname LIKE ? ORDER BY v.uploaded_at DESC LIMIT ? OFFSET ?");
+    $stmt = $conn->prepare("SELECT v.*, t.fullname FROM videos v JOIN users t ON v.user_id = t.id WHERE v.title LIKE ? OR t.fullname LIKE ? ORDER BY v.uploaded_at DESC LIMIT ? OFFSET ?");
     $stmt->bind_param("ssii", $search_param, $search_param, $limit, $offset);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -35,7 +35,7 @@ if ($search) {
 
 } else {
     $totalRows = $conn->query("SELECT COUNT(*) as total FROM videos")->fetch_assoc()['total'];
-    $sql = "SELECT v.*, t.fullname FROM videos v JOIN talents t ON v.user_id = t.id ORDER BY v.uploaded_at DESC LIMIT $limit OFFSET $offset";
+    $sql = "SELECT v.*, t.fullname FROM videos v JOIN users t ON v.user_id = t.id ORDER BY v.uploaded_at DESC LIMIT $limit OFFSET $offset";
     $result = $conn->query($sql);
 }
 

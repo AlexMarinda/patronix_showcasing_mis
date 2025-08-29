@@ -8,7 +8,7 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 
 $id = intval($_GET['id']);
 
-$sql = "DELETE FROM talents WHERE id = $id";
+$sql = "DELETE FROM users WHERE role='talent' AND id = $id";
 if ($conn->query($sql)) {
     // Success: redirect back to manage page
     header("Location: manage_talents.php?deleted=1");

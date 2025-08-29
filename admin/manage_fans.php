@@ -11,7 +11,8 @@ if (!isset($_SESSION['admin_id'])) {
 if (isset($_GET['delete_id'])) {
     $id = intval($_GET['delete_id']);
 
-    $stmt = $conn->prepare("DELETE FROM fans WHERE id = ?");
+    $stmt = $conn->prepare("DELETE FROM users WHERE role='fan' And id = ?");
+    // $stmt = $conn->prepare("DELETE FROM users WHERE role='fan'");
     if ($stmt) {
         $stmt->bind_param("i", $id);
         $stmt->execute();
@@ -22,7 +23,7 @@ if (isset($_GET['delete_id'])) {
 }
 
 // Fetch all fans
-$result = $conn->query("SELECT * FROM fans ORDER BY created_at DESC");
+$result = $conn->query("SELECT * FROM users WHERE role='fan' ORDER BY created_at DESC");
 ?>
 
 

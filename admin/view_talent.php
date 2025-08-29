@@ -8,7 +8,7 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 
 $id = intval($_GET['id']);
 
-$sql = "SELECT * FROM talents WHERE id = $id";
+$sql = "SELECT * FROM users WHERE id = $id AND role='talent' " ;
 $result = $conn->query($sql);
 
 if (!$result || $result->num_rows == 0) {
