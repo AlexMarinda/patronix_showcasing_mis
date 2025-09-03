@@ -7,11 +7,22 @@ if (!isset($_SESSION['admin_id'])) {
     exit();
 }
 
+// $donations = $conn->query("
+//     SELECT d.*, u.fullname AS talent_name, f.fullname AS fan_name, v.title
+//     FROM donation_history d
+//     JOIN users u ON d.talent_id = u.id
+//     JOIN users f ON d.fan_id = f.id
+//     JOIN videos v ON d.video_id = v.id
+//     ORDER BY d.created_at DESC
+// ");
 $donations = $conn->query("
-    SELECT d.*, u.fullname AS talent_name, f.fullname AS fan_name, v.title
-    FROM donations d
-    JOIN users u ON d.talent_id = u.id
-    JOIN fans f ON d.fan_id = f.id
+    SELECT d.*, 
+           u.fullname AS talent_name, 
+           f.fullname AS fan_name, 
+           v.title
+    FROM donation_history d
+    JOIN users u ON d.talent_id = u.id AND u.role = 'talent'
+    JOIN users f ON d.fan_id = f.id AND f.role = 'fan'
     JOIN videos v ON d.video_id = v.id
     ORDER BY d.created_at DESC
 ");

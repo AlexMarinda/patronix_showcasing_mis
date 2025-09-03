@@ -122,6 +122,20 @@ input[type="text"], input[type="email"], input[type="password"], select {
   border-radius: 4px;
   font-weight: 600;
 }
+.video-wrapper {
+    max-width: 800px;      /* Maximum width of the video */
+    margin: 20px auto;     /* Center horizontally with spacing */
+    border-radius: 10px;   /* Rounded corners */
+    overflow: hidden;      /* Rounded corners effect */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* subtle shadow */
+}
+
+.video-wrapper video {
+    width: 100%;           /* Full width of the container */
+    height: 450px;         /* Fixed height; adjust as needed */
+    object-fit: cover;     /* Ensures video scales nicely */
+    display: block;
+}
 
 .pagination a.active, .pagination a:hover {
   background: #0056b3;

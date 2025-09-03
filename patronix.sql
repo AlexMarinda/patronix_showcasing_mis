@@ -27,7 +27,7 @@ CREATE TABLE videos (
     likes INT DEFAULT 0,
     status ENUM('pending','approved','rejected') DEFAULT 'pending',
     uploaded_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES talents(id) ON DELETE CASCADE
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 -- Donation history
@@ -38,7 +38,7 @@ CREATE TABLE donation_history (
     amount DECIMAL(10,2) NOT NULL,
     date DATETIME DEFAULT CURRENT_TIMESTAMP,
     status ENUM('pending','success','failed') DEFAULT 'pending',
-    FOREIGN KEY (user_id) REFERENCES talents(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (video_id) REFERENCES videos(id) ON DELETE CASCADE
 );
 
@@ -74,6 +74,8 @@ ALTER TABLE donation_history ADD COLUMN created_at DATETIME DEFAULT CURRENT_TIME
 ALTER TABLE donation_history ADD COLUMN transaction_id  VARCHAR(255) NULL;
 
 ALTER TABLE videos ADD COLUMN created_at DATETIME DEFAULT CURRENT_TIMESTAMP;
+ALTER TABLE videos DROP FOREIGN KEY videos_ibfk_1;
+ALTER TABLE videos ADD CONSTRAINT fk_videos_users FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE;
 -- Indexes to speed up queries
 CREATE INDEX idx_videos_user_id ON videos(user_id);
 -- CREATE INDEX idx_donations_user_id ON donation_history(user_id);

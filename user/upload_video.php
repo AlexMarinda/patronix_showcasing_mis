@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($stmt->execute()) {
                     $message = "Video uploaded successfully and pending approval.";
                 } else {
-                    $message = "Database error: could not save video.";
+                    $message = "Database error: " . $stmt->error;  // show actual DB error
                     unlink($targetPath); // delete uploaded file on error
                 }
             } else {

@@ -333,7 +333,7 @@ $result = $stmt->get_result();
     <div class="video-container">
       <?php while ($video = $result->fetch_assoc()) : ?>
         <div class="video-card">
-          <video controls autoplay muted loop
+          <video controls muted loop
             onclick="window.location.href='user/view_video.php?id=<?= $video['id'] ?>'">
             <source src="uploads/<?= htmlspecialchars($video['filename']) ?>" type="video/mp4">
           </video>

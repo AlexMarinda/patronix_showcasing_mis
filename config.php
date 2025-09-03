@@ -2,8 +2,8 @@
 // Database configuration
 $host = "localhost";
 $user = "root"; // Default XAMPP username
-$pass = "";     // Default XAMPP password is empty
-// $pass = "teller";     // Default XAMPP password is empty
+// $pass = "";     // Default XAMPP password is empty
+$pass = "teller";     // Default XAMPP password is empty
 $dbname = "patronix_db";
 
 // Create connection

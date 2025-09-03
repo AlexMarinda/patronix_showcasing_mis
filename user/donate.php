@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // 1. Define FDI API credentials and endpoint
 $fdi_api_url = "https://payments-api.fdibiz.com/v2/momo/pull"; // replace with real URL
-$fdi_api_key = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzOTA3MmNiZS0wZGVkLTRmOTktOWRiZi1kMDg2YjEzZDU4NjUiLCJpYXQiOjE3NTYzMDA4MDEsIm5iZiI6MTc1NjMwMDgwMSwianRpIjoiNzdjZWNjZTctNDM4Yi00YjNjLTkyMmUtOTkzOGE0MDA2NDM4IiwiZXhwIjoxNzU2Mzg3MjAxLCJ0eXBlIjoiYWNjZXNzIiwiZnJlc2giOnRydWUsImFwaV9pZCI6IjhjNWVkMjMxLWZlNTAtNGQzNC1iOGUxLTYxYmNlZjBmZjNlMCIsImt5Y19pZCI6IjM1NjMzNjFkLTcxNjUtNDE1Yi05YzkxLTExNTZkOTMyZGYwOCIsIm5hbWUiOiJYMyJ9.D_XVwbDr-0y8oFQ-i3imU9fUTuTh4m8LbZsYTN-xOPE"; // replace with your key
+$fdi_api_key = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzOTA3MmNiZS0wZGVkLTRmOTktOWRiZi1kMDg2YjEzZDU4NjUiLCJpYXQiOjE3NTY4MDgzNDIsIm5iZiI6MTc1NjgwODM0MiwianRpIjoiNWIxZTJlYjMtZDA0OC00MGJjLWJjMGQtYTQ4MGQ0ODNmNzQ2IiwiZXhwIjoxNzU2ODk0NzQyLCJ0eXBlIjoiYWNjZXNzIiwiZnJlc2giOnRydWUsImFwaV9pZCI6IjhjNWVkMjMxLWZlNTAtNGQzNC1iOGUxLTYxYmNlZjBmZjNlMCIsImt5Y19pZCI6IjM1NjMzNjFkLTcxNjUtNDE1Yi05YzkxLTExNTZkOTMyZGYwOCIsIm5hbWUiOiJYMyJ9.5Ctuwf5lOErU-Wr4xWPzWCXORYS2MOOM3KXxkFGuUT4"; // replace with your key
 
 // Prepare payload
 $payload = [
