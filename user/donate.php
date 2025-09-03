@@ -45,6 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     die("Execute failed: " . $stmt->error);
 }
         if ($stmt->execute()) {
+            $donation_id = $conn->insert_id;
+
             $message = "Thank you for your donation! It will be processed shortly.";
             // TODO: Add FDI payment integration here for push/pull
             // After successful insert of donation record, do FDI pull request
@@ -58,7 +60,7 @@ $payload = [
     "amount" => $amount,
     "msisdn" => $phone,
     "channelId" =>  "momo-mtn-rw",
-    "trxRef" => $conn->insert_id, // donation id for tracking
+    "trxRef" => (string)$donation_id, // donation id for tracking
     "accountId" => "8C5ED231-FE50-4D34-B8E1-61BCEF0FF3E0",
     "callback" =>"http://178.79.172.122:5020/callback"
     // "currency" => "RWF",
@@ -97,7 +99,7 @@ if ($httpcode == 202) {
     if ($transaction_id) {
         // Update donation record with transaction_id and set status to processing
         $update = $conn->prepare("UPDATE donation_history SET transaction_id = ?, status = 'processing' WHERE id = ?");
-        $update->bind_param("si", $transaction_id, $conn->insert_id);
+        $update->bind_param("si", $transaction_id, $donation_id);
         $update->execute();
         $update->close();
 
