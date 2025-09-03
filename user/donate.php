@@ -46,7 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
         if ($stmt->execute()) {
             $donation_id = $conn->insert_id;
-
             $message = "Thank you for your donation! It will be processed shortly.";
             // TODO: Add FDI payment integration here for push/pull
             // After successful insert of donation record, do FDI pull request
@@ -87,6 +86,7 @@ curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
 
 $response = curl_exec($ch);
+
 $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
@@ -108,7 +108,7 @@ if ($httpcode == 202) {
         $message = "Failed to initiate payment. Try again.";
     }
 } else {
-    $message = "FDI API error: HTTP $httpcode";
+    $message = "FDI API error: HTTP $response";
 }
 //end
         } else {
