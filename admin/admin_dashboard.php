@@ -112,7 +112,7 @@ if ($chartQuery) {
 <body>
     <div class="admin-container">
          <?php include 'header.php'; ?>
-        <a href="admin_logout.php" class="logout">Logout</a>
+        <!-- <a href="admin_logout.php" class="logout">Logout</a> -->
         <h2>Welcome, <?= htmlspecialchars($_SESSION['admin_username']) ?></h2>
 
         <!-- ✅ Updated stats boxes -->
@@ -122,7 +122,7 @@ if ($chartQuery) {
             <div>Total Fans:<br><span><?= $totalFans ?></span></div>
             <div>Total Videos:<br><span><?= $totalVideos ?></span></div>
         </div>
-
+<!-- 
         <div class="admin-nav">
             <h3>Admin Management</h3>
             <ul>
@@ -131,7 +131,7 @@ if ($chartQuery) {
                 <li><a href="donation_history.php">View Donations</a></li>
                 <li><a href="fdi_tools.php">FDI API Tools</a></li>
             </ul>
-        </div>
+        </div> -->
 
         <h3>Donation Chart (per Month)</h3>
         <div class="chart-container">

@@ -54,7 +54,7 @@ $totalPages = ceil($totalRows / $limit);
      <?php include 'header.php'; ?>
     <h2>Manage Videos</h2>
     <a href="admin_dashboard.php" class="btn">← Back to Dashboard</a>
-    <a href="admin_logout.php" class="logout">Logout</a>
+    <!-- <a href="admin_logout.php" class="logout">Logout</a> -->
 
     <form method="GET" action="manage_videos.php" style="margin-top: 20px;">
         <input type="text" name="search" placeholder="Search by video title or talent" value="<?php echo htmlspecialchars($search); ?>">

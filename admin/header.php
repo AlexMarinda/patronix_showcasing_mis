@@ -34,7 +34,8 @@
         <a href="manage_talents.php">Manage Talents</a>
         <a href="manage_fans.php">Manage Fans</a>
         <a href="manage_donations.php">Donations</a>
-        <a href="charts.php">Charts</a>
-        <a href="logout.php" onclick="return confirm('Logout now?')">Logout</a>
+        <a href="manage_videos.php">Manage Videos</a>
+         <a href="admin_logout.php" onclick="return confirm('Logout now?')">Logout</a>
+        <!-- <a href="logout.php" onclick="return confirm('Logout now?')">Logout</a> -->
     </div>
     <div class="container">

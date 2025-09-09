@@ -36,6 +36,7 @@ $donations = $conn->query("
 </head>
 <body>
     <div class="admin-container">
+        <?php include 'header.php'; ?>
         <h2>Manage Donations</h2>
         <a href="admin_dashboard.php" class="btn">← Back to Dashboard</a>
 
@@ -47,7 +48,7 @@ $donations = $conn->query("
                         <th>Talent</th>
                         <th>Video</th>
                         <th>Amount (RWF)</th>
-                        <th>FDI Txn ID</th>
+                        <th>payment Txn ID</th>
                         <th>Status</th>
                         <th>Date</th>
                     </tr>

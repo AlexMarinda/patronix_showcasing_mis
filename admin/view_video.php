@@ -51,10 +51,16 @@ $stmt->close();
         <p><strong>Likes:</strong> <?php echo $video['likes']; ?></p>
         <p><strong>Uploaded At:</strong> <?php echo $video['uploaded_at']; ?></p>
 
-        <video width="600" controls>
+        <!-- <video width="600" controls>
             <source src="../uploads/<?php echo $video['filename']; ?>" type="video/mp4">
             Your browser does not support the video tag.
-        </video>
+        </video> -->
+          <div class="video-wrapper">
+    <video controls>
+        <source src="../uploads/videos/<?php echo htmlspecialchars($video['filename']); ?>" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
     </div>
 </div>
 <?php include 'footer.php'; ?>

@@ -50,7 +50,7 @@ $totalPages = ceil($totalRows / $limit);
     <?php include 'header.php'; ?>
     <h2>Manage Talents</h2>
     <a href="admin_dashboard.php" class="btn">← Back to Dashboard</a>
-    <a href="admin_logout.php" class="logout">Logout</a>
+    <!-- <a href="admin_logout.php" class="logout">Logout</a> -->
 
     <form method="GET" action="manage_talents.php" style="margin-top: 20px;">
         <input type="text" name="search" placeholder="Search by name or phone" value="<?php echo htmlspecialchars($search); ?>">
