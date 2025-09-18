@@ -44,7 +44,7 @@ function getFDIAccessToken() {
     $response = curl_exec($ch);
     $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
-    var_dump($httpcode, $response); // debug output
+    // var_dump($httpcode, $response); // debug output
 
     if ($httpcode === 200) {
         $data = json_decode($response, true);
