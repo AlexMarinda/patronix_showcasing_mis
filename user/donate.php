@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $amount = floatval($_POST['amount']);
     $phone = $_POST['phone'];
 
-    if ($amount <= 0) {
+    if ($amount <= 100) {
         $message = "Please enter a valid donation amount.";
     } else {
         // Save donation with 'pending' status
