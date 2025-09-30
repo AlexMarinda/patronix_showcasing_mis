@@ -305,6 +305,7 @@ $result = $stmt->get_result();
   <a href="user/user_login.php">Login</a>
   <a href="user/upload_video.php">Upload</a>
   <a href="admin/admin_dashboard.php">Admin</a>
+ 
 </nav>
 
 <div class="search-bar">
