@@ -35,7 +35,7 @@ $totalFans = ($res && $res->num_rows > 0) ? $res->fetch_assoc()['total'] : 0;
 $labels = [];
 $data = [];
 $chartQuery = $conn->query("SELECT DATE_FORMAT(date, '%Y-%m') as month, SUM(amount) as total 
-                            FROM donations GROUP BY month ORDER BY month ASC");
+                            FROM donation_history GROUP BY month ORDER BY month ASC");
 if ($chartQuery) {
     while ($row = $chartQuery->fetch_assoc()) {
         $labels[] = $row['month'];
